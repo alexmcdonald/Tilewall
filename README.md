@@ -4,31 +4,34 @@
 
 Tile Wall is a super-flexible, easy to configure Lightning Component to display Salesforce records as a series of tiles.  It can be instantly added to any Lightning pages including communities, and works fine in the Salesforce app.
 
+![image](https://github.com/alexmcdonald/Tilewall/assets/3958480/9ca397d3-1c90-4887-9f71-8536da5e1482)
+
+
 ## How Flexible?
 
 * Present any Salesforce Object
 * Works in Lightning and in Experience Cloud - including LWR
 * Display any fields from the record or a related record, either as fields or as badges
 * Endless formatting choices:
- * Component Level:
-  * Number of columns
-  * Maximum number of displayed records
-  * Title
-  * Icon
-  * Ordering
-  * Search Option and Search Text
-  * Background Color
-  * Field Style: Horizontal (Label to the left) or Stacked (Label on top)
- * Tile-Level:
-  * Tile icon/media - hard-coded or based on record fields
-  * Background colors - hard-coded or based on record fields
-  * Background images - hard-coded or bsaed on record fields
-  * Card Title - Field, Text Size, Alignment, Case
- * Field-Level:
-  * Display as a Field or a Badge
-  * Custom Labels (or no labels)
-  * Colour & Background Color - hard-coded or based on record fields
-  * Size, Alignment, Case
+  * Component Level:
+    * Number of columns
+    * Maximum number of displayed records
+    * Title
+    * Icon
+    * Ordering
+    * Search Option and Search Text
+    * Background Color
+    * Field Style: Horizontal (Label to the left) or Stacked (Label on top)
+  * Tile-Level:
+    * Tile icon/media - hard-coded or based on record fields
+    * Background colors - hard-coded or based on record fields
+    * Background images - hard-coded or bsaed on record fields
+    * Card Title - Field, Text Size, Alignment, Case
+  * Field-Level:
+    * Display as a Field or a Badge
+    * Custom Labels (or no labels)
+    * Colour & Background Color - hard-coded or based on record fields
+    * Size, Alignment, Case
 * Enable actions from each tile by launching Flows
 * Easy, re-usable configuration with a flow-based configurator
 * Plus, tweak the record set by optionally adding a SOQL Where clause when you drag the component onto a page - eg. to scope the component just to children of a particular Account or other record
@@ -39,19 +42,19 @@ Tile Wall is a super-flexible, easy to configure Lightning Component to display 
 Dynacat started as a project to create the ultimate filters component.
 
 * Field-Based Filtering
- * Filter By Field:
-  * Picklists
-  * Multi-Picklists
-  * Checkboxes
-  * Number (incl Currency & Percent)
-  * Date & DateTime
- * Fields can be on the record being filtered, or on any parent record
- * Picklists, Multi-Picklists and Checkboxes can be displayed as Checkboxes, Radio Buttons, Drop-Downs, or Two Column "Dueling Picklists"
- * Number fields are displayed as a two-ended Range slider, with configurable Min and Max values
- * Dater fields are displayed with a From and To date picker
+  * Filter By Field:
+    * Picklists
+    * Multi-Picklists
+    * Checkboxes
+    * Number (incl Currency & Percent)
+    * Date & DateTime
+  * Fields can be on the record being filtered, or on any parent record
+  * Picklists, Multi-Picklists and Checkboxes can be displayed as Checkboxes, Radio Buttons, Drop-Downs, or Two Column "Dueling Picklists"
+  * Number fields are displayed as a two-ended Range slider, with configurable Min and Max values
+  * Dater fields are displayed with a From and To date picker
 * And, offer nested filtering "product catalog" style with Attributes
- * Attributes are a custom object included in Dynacat that allow you to define a hierarchy of tags that you can apply to any object. Closest analogy is Data Categories in Salesforce Knowledge.
- * Dynacat can display these attributes as nested checkboxes (default), or as Radio Buttons or Drop-Downs, although you lose the ability to nest with the last two.
+  * Attributes are a custom object included in Dynacat that allow you to define a hierarchy of tags that you can apply to any object. Closest analogy is Data Categories in Salesforce Knowledge.
+  * Dynacat can display these attributes as nested checkboxes (default), or as Radio Buttons or Drop-Downs, although you lose the ability to nest with the last two.
 * Easy, re-usable configuration with a flow-based configurator
 * Display the filtered records with Tile Wall, or build your own UI in Lightning Web Components if you're so inclined
 
@@ -68,9 +71,13 @@ Tile Wall is designed to be used in lots of different place within your org, and
 
 The Tile Wall Configurator flow lets you edit an existing wall config, or create a new one.
 
+![image](https://github.com/alexmcdonald/Tilewall/assets/3958480/e5cabc1e-150f-4b84-bb03-e39d4d43bf6b)
+
 
 
 The name of the config is used to identify which Tile Wall to add to each page, so make sure it's descriptive.  Each config is specific to the object being displayed on the Tile Wall.
+
+![image](https://github.com/alexmcdonald/Tilewall/assets/3958480/7a50999b-8608-488e-adbd-00cbfd01b0dc)
 
 
 
@@ -104,6 +111,7 @@ And, if you set up field background colors (in the next section), then you might
 
 After setting all the different options for your wall (*or* just setting the Tile Title and leaving the defaults) you can set up the *Fields* and *Badges* that you want displayed on each tile, and configure any Flow-based *Actions* that you want to be able to launch from the tile's action menu.  Click the Blue Button at the bottom to create your first.
 
+![image](https://github.com/alexmcdonald/Tilewall/assets/3958480/393ce3e3-780f-430f-bdde-7c1d7ad3bd76)
 
 
 *Create a Field*
@@ -120,6 +128,8 @@ Set the *Text Size*, *Alignment*, and *Case* for the field's value, as well as i
 
 If you do specify a Label, then you can also set its color and background color.
 
+![image](https://github.com/alexmcdonald/Tilewall/assets/3958480/701e4e94-a415-42bb-8bac-4c7a1d7d1083)
+
 
 
 *Create a Badge*
@@ -132,6 +142,7 @@ Select the *Field* to display from the record or related record.  And optionally
 
 And select the Color and/or Background Color for the Badge.  The dynamic Field-based color choices are very effective here.  For example, you could create a badge to display Case Priority.  The priority can be displayed in white text on a red badge for High or Critical cases, white text on an orange badge for a Medium case, or black text on a pale green badge for Low priority.
 
+![image](https://github.com/alexmcdonald/Tilewall/assets/3958480/258b6c25-978d-4c99-b10b-659345675a40)
 
 
 *Create an Action*
@@ -145,6 +156,8 @@ Enter the *Flow Name* (API Name) to launch, or specify a field that defines the 
 Set the *Label* for the Action, this will display in the Action Menu.
 
 Optionally, pass three hard-coded values into the Flow to help configure the Flow's behaviour.  The record Id for the tile will automatically be passed into the Flow.  See the section on Flow Actions below for guidance on how to set up your Flows.
+
+![image](https://github.com/alexmcdonald/Tilewall/assets/3958480/30ad8f68-f6c3-44e3-86a8-72449239f4eb)
 
 
 # Configuring Dynacat
@@ -161,10 +174,13 @@ Similarly to Tile Wall, Dynacat allows you to create multiple different configur
 
 Open the Dynacat Configurator and create a new deployment.
 
+![image](https://github.com/alexmcdonald/Tilewall/assets/3958480/95c73cbe-a6ee-4b9c-a5ee-600078466245)
+
 
 
 The name of the deployment is used to identify which set of filters to add to each page, so make sure it's descriptive. Each deployment is specific to the object being filtered.
 
+![image](https://github.com/alexmcdonald/Tilewall/assets/3958480/63bf5be2-2719-4498-8ec1-a5e5b9448a0d)
 
 
 The config at the deployment level is very minimal, most of the options are at the individual field level.
@@ -175,15 +191,19 @@ You can also delete an unwanted deployment, and all its filters, by toggling the
 
 Click on the blue Create button to create your first filter.
 
+![image](https://github.com/alexmcdonald/Tilewall/assets/3958480/140af006-ae6f-4a7a-909f-ae099402c296)
 
 
 You can create *Sections,* *Field*-based filters, or *Attribute*-based filters.
 
 Specify the order for all the filters (including sections).  As with Tile Wall, it can be handy to initially order in increments of 10, so that you can move or insert new filters down the track.
 
+![image](https://github.com/alexmcdonald/Tilewall/assets/3958480/ca681e66-b6bf-4b31-8f13-5f5582614a08)
 
 
 *Sections* are just headings to separate groups of filters
+
+![image](https://github.com/alexmcdonald/Tilewall/assets/3958480/3b819915-76c0-4813-94ee-d57e0b9f61f1)
 
 
 
@@ -193,24 +213,29 @@ Select the Field from the drop-down - selecting a lookup or master-detail field 
 
 Depending on the field-type selected, additional fields may be displayed on the next screen/s.
 
+![image](https://github.com/alexmcdonald/Tilewall/assets/3958480/959e62a2-3ad0-4d9e-b39e-8cfde62357f6)
 
 
 For picklist and multi-select picklists fields, you can choose how you want the filter to be displayed.  Options are as Checkboxes, Radio Buttons, a picklist (drop-down), or a two-column "dueling picklist".
 
 By default any picklist values for the field will be included, but you can restrict this.  If you do this, enter the *valid picklist values*, comma-separated.
 
+![image](https://github.com/alexmcdonald/Tilewall/assets/3958480/727f0372-e4eb-436f-8db4-5198f6d97784)
 
 
 Checkbox fields (in this case the IsEscalated field) have the same display options as picklists, but with only two values.  You can specify the l*abels* for the checked or unchecked options.
 
+![image](https://github.com/alexmcdonald/Tilewall/assets/3958480/1a9218be-28fd-4e02-bfc2-645226cc7d1d)
 
 
 For number, currency, or percent fields, the filter will be displayed as a two-ended slider.  You need to set the *minimum* and *maximum* values for the filter, in this case the Account Annual Revenue field.
 
+![image](https://github.com/alexmcdonald/Tilewall/assets/3958480/8aab926c-f98c-4fe9-a218-98d91a800ef7)
 
 
 And Date / Date-Time fields don't have any configuration, they're displayed as two date-pickers, being the start date and end-date for the filter.
 
+![image](https://github.com/alexmcdonald/Tilewall/assets/3958480/c89a4e13-4235-4521-8cc6-4fe56cfa319e)
 
 
 *Attribute*-based filters are configured on the one page.  Follow the guidance in the Attributes section below for setting up and assigning attributes to records.
@@ -221,10 +246,12 @@ Choose how to display the attributes.  If you have nested attributes, then Check
 
 Select the *lookup field* on the Record Attribute object, that relates to the records being filtered.  Sample fields have been created for standard Products, Cases, and the sample Dynacat Product object.  If you're filtering any other object, you'll need to create the lookup field.
 
+![image](https://github.com/alexmcdonald/Tilewall/assets/3958480/7c1fef0a-0394-4158-82fe-018e03fbc429)
 
 
 The Filters table shows you all the configured filters for your deployment, and lets you *edit* or *delete* them from the action menu.
 
+![image](https://github.com/alexmcdonald/Tilewall/assets/3958480/2a5dea7d-8f42-4ed3-8656-df10f8b60c79)
 
 
 # Tile Wall & Dynacat Lightning Components
@@ -237,6 +264,10 @@ For the Tile Wall (with Dynacat) component, enter the Tile Wall configuration na
 
 If the Tile Wall component is being used in an Experience Cloud site, an additional attribute is included to pass in the record Id.  This attribute value will default to the standard {!recordId}.  If you are using it on a record page such as an Object Detail page, then leave it as is.  But if you are using the component on a different page, you should blank out the value, or hard-code it if that’s relevant for your use case.
 
+![image](https://github.com/alexmcdonald/Tilewall/assets/3958480/2e10c648-b304-4ecf-9bfa-a79ed2167ffa)
+![image](https://github.com/alexmcdonald/Tilewall/assets/3958480/672d41bf-36b0-4827-9c45-6ffb495728c7)
+![image](https://github.com/alexmcdonald/Tilewall/assets/3958480/fd8d223f-14ec-48c3-b591-7e54b42b7d47)
+
 
 # Attributes
 
@@ -246,9 +277,12 @@ To set up attribute-based filters, first create Attribute (Dynacat_Attribute__c)
 
 Once you’ve created your attribute tree, the next step is to associate it with the object you’re filtering.  To do this, create a new lookup field on the Record Attribute (Dynacat_Record_Attribute__c) object, with a relationship to the object you’re filtering.  The installed package will include pre-built lookup fields to the Product2 and Case objects, as well as to the custom Dynacat_Product__c object.
 
+![image](https://github.com/alexmcdonald/Tilewall/assets/3958480/85b41282-c59f-477e-a438-d93658e6fb4a)
 
 
 Next, edit the Lightning Page for the object you’re filtering, and add the Dynacat: Attribute Selector custom component to it.  Set the Lookup Field Name to the API name of the field you’ve just created.  You can also pre-expand additional levels of nested attributes by adjusting the Intially Expanded Levels field, see the screenshot below for the format.
+
+![image](https://github.com/alexmcdonald/Tilewall/assets/3958480/2ebecc66-1131-4750-bd17-b2522a1797ea)
 
 
 Now, you can select the attributes that should apply for each record, at any level.  Each associated attribute is created as a Record Attribute record. You can also use data loader to import record attributes against your records en masse if you have more than a few to load.
