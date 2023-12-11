@@ -1,0 +1,23 @@
+<template>
+
+    <li data-id={xid} role="treeitem" tabindex="0">
+        <div class="slds-tree__item">
+            <div style="width:100%;" class="slds-grid">
+                <div class="slds-col slds-grow">
+
+                    <lightning-dual-listbox data-id={xid} label={label} value={values} source-label="Available"
+                        selected-label="Selected" options={options} onchange={handleSelect}
+                        disable-reordering></lightning-dual-listbox>
+
+                </div>
+                <template if:true={showclear}>
+                    <div class="slds-no-flex">
+                        <lightning-button-icon icon-name="utility:delete" variant="bare" alternative-text="Clear Radio"
+                            title="Clear" onclick={handleClear} class="slds-m-left_medium"></lightning-button-icon>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </li>
+
+</template>

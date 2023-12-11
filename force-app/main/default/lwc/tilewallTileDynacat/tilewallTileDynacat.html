@@ -1,0 +1,161 @@
+<template>
+
+    <article data-id="tile" class={tileClasses}>
+
+        <template if:true={tile.showMedia}>
+
+            <div class="slds-media__figure">
+                <template if:true={showIcon}>
+                    <span class={iconContainerClasses}>
+                        <lightning-icon icon-name={tile.media} size={tile.mediaSize}></lightning-icon>
+                    </span>
+                </template>
+                <template if:true={showImage}>
+                    <span class={tile.imageClasses}>
+                        <img src={tile.media} title="Tile Image" />
+                    </span>
+                </template>
+            </div>
+
+        </template>
+
+        <div class={bodyClasses}>
+
+
+
+            <template if:true={tile.hasActions}>
+
+                <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
+                    <div class={tile.titleClasses}>
+                        <p data-id={tile.id} title={tile.titleValue} onclick={handleRecordClick}><a
+                                href="#">{tile.titleValue}</a>
+                        </p>
+                    </div>
+
+                    <div class="slds-shrink-none">
+                        <lightning-button-menu menu-alignment="auto" icon-size="x-small"
+                            alternative-text={buttonAlternateText} data-id={tile.id} onselect={handleActionSelect}>
+                            <template for:each={tile.actions} for:item="actionField">
+                                <lightning-menu-item key={actionField.num} value={actionField.num}
+                                    label={actionField.label}></lightning-menu-item>
+                            </template>
+                        </lightning-button-menu>
+                    </div>
+
+                </div>
+            </template>
+            <template if:false={tile.hasActions}>
+                <div class={tile.titleClasses}>
+                    <p data-id={tile.id} title={tile.titleValue} onclick={handleRecordClick}><a
+                            href="#">{tile.titleValue}</a>
+                    </p>
+                </div>
+            </template>
+
+
+            <div class="slds-tile__detail">
+
+                <template if:true={tile.hasFields}>
+
+                    <template if:true={tile.isStacked}>
+                        <dl class={tile.fieldClasses}>
+                            <template for:each={tile.fields} for:item="tileField" for:index="num">
+                                <template if:true={tileField.hasValue}>
+
+                                    <template if:true={tileField.hasLabel}>
+                                        <dt key={tileField.num} data-lab={num} class={tileField.labelClasses}
+                                            title={tileField.label}>
+                                            {tileField.label}</dt>
+                                    </template>
+                                    <dd key={tileField.num} data-field={num} title={tileField.value}
+                                        class={tileField.valueClasses}>
+                                        <lightning-formatted-rich-text
+                                            value={tileField.value}></lightning-formatted-rich-text>
+                                    </dd>
+
+                                </template>
+                            </template>
+                        </dl>
+                    </template>
+
+                    <template if:true={tile.isHorizontal}>
+                        <table class={tile.fieldClasses}>
+                            <thead class="slds-assistive-text">
+                                <tr class="slds-line-height_reset">
+                                    <th class="" scope="col">
+                                        <div class="slds-truncate" title="Field Label">Field Label</div>
+                                    </th>
+                                    <th class="" scope="col">
+                                        <div class="slds-truncate" title="Field Value">Field Value</div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <template for:each={tile.fields} for:item="tileField" for:index="num">
+                                    <template if:true={tileField.hasValue}>
+                                        <tr key={tileField.num} class="slds-hint-parent">
+                                            <template if:true={tileField.hasLabel}>
+                                                <td data-label="Label" data-lab={num}
+                                                    class={tileField.labelClasses}
+                                                    style="width:auto; min-width:25%; max-width:65%;">
+                                                    <div title={tileField.label}>{tileField.label}</div>
+                                                </td>
+                                                <td data-label="Value" data-field={num}
+                                                    class={tileField.valueClasses}
+                                                    style="width:100%; max-width:75%; min-width:35%;">
+                                                    <lightning-formatted-rich-text
+                                                        value={tileField.value}></lightning-formatted-rich-text>
+                                                </td>
+                                            </template>
+                                            <template if:false={tileField.hasLabel}>
+                                                <td data-label="Value" colspan="2" data-field={num}
+                                                    class={tileField.valueClasses}
+                                                    style="width:100%; max-width:75%; min-width:35%;">
+                                                    <lightning-formatted-rich-text
+                                                        value={tileField.value}></lightning-formatted-rich-text>
+                                                </td>
+                                            </template>
+                                        </tr>
+                                    </template>
+                                </template>
+                            </tbody>
+                        </table>
+                    </template>
+
+                </template>
+
+                <template if:true={tile.hasBadges}>
+                    <div class="slds-m-top_xx-small slds-m-bottom_none">
+                        <template for:each={tile.badges} for:item="tileBadge" for:index="num">
+                            <template if:true={tileBadge.hasValue}>
+
+
+
+                                <span key={tileBadge.num} data-badge={num} class={tileBadge.badgeClasses}>
+                                    <template if:true={tileBadge.badgeIcon}>
+                                        <span class="slds-badge__icon slds-badge__icon_left" style="color:inherit;">
+                                            <lightning-icon icon-name={tileBadge.badgeIcon} size="xx-small"
+                                                class="slds-current-color"></lightning-icon>
+                                        </span>
+                                    </template>
+                                    <template if:true={tileBadge.hasLabel}><span
+                                            class={tileBadge.labelClasses}>{tileBadge.label}</span>&nbsp;</template>
+                                    <strong><span class={tileBadge.valueClasses}><lightning-formatted-rich-text
+                                                value={tileBadge.value}></lightning-formatted-rich-text></span></strong>
+                                </span>
+                            </template>
+                        </template>
+                    </div>
+                </template>
+
+
+            </div>
+
+        </div>
+
+
+    </article>
+
+
+
+</template>

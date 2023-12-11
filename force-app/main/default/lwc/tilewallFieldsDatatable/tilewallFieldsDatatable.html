@@ -1,0 +1,163 @@
+<template>
+
+    <div class="slds-m-bottom_medium">
+
+        <div class="slds-text-heading_small slds-text-color_weak slds-m-bottom_small">{label}</div>
+
+        <div class="slds-m-bottom_medium">
+            <template if:true={displayTable}>
+
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_fixed-layout"
+                    aria-label="Fields &amp; Badges">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th class="" scope="col">
+                                <div class="" style="width:1rem;" title="Name">Name</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="" style="width:1rem;" title="Order">Order</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="" style="width:1rem;" title="Label">Label</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="" style="width:1rem;" title="Displayed Field">Displayed Field / Flow</div>
+                            </th>
+                            <th class="" scope="col" style="width: 50px; min-width: 50px; max-width:50px;">
+                                <div class="" title="Actions"></div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template if:true={showFields}>
+                            <tr class="slds-hint-parent">
+                                <th colspan="5" scope="row">
+                                    <div class="slds-p-top_small" title="Fields">
+                                        <p class="slds-text-body_regular slds-text-color_weak"><strong>Fields:</strong>
+                                        </p>
+                                    </div>
+                                </th>
+                            </tr>
+                            <template for:each={fields} for:item="field" for:index="index">
+                                <tr key={field.Id} class="slds-hint-parent">
+                                    <th data-label="Name" scope="row">
+                                        <div class="" title={field.Name}>{field.Name__c}</div>
+                                    </th>
+                                    <td data-label="Order">
+                                        <div class="" title={field.order__c}>{field.order__c}</div>
+                                    </td>
+                                    <td data-label="Label">
+                                        <div class="" title={field.label__c}>{field.label__c}</div>
+                                    </td>
+                                    <td data-label="Displayed Field">
+                                        <div class="" title={field.apiName__c}>{field.apiName__c}</div>
+                                    </td>
+                                    <td data-label="Actions" class="slds-p-around_none"
+                                        style="width: 50px; min-width: 50px; max-width:50px;">
+                                        <div class="slds-text-align_absolute-center slds-text-align_center">
+                                            <lightning-button-menu alternative-text="Show menu" variant="border"
+                                                icon-size="x-small" onselect={handleRowAction} data-type="field"
+                                                data-row={index}>
+                                                <lightning-menu-item value="edit" label="Edit"
+                                                    icon-name="utility:edit"></lightning-menu-item>
+                                                <lightning-menu-item value="delete" label="Delete"
+                                                    icon-name="utility:delete"></lightning-menu-item>
+                                            </lightning-button-menu>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            </template>
+                        </template>
+                        <template if:true={showBadges}>
+                            <tr class="slds-hint-parent">
+                                <th colspan="5" scope="row">
+                                    <div class="slds-p-top_small" title="Badges">
+                                        <p class="slds-text-body_regular slds-text-color_weak"><strong>Badges:</strong>
+                                        </p>
+                                    </div>
+                                </th>
+                            </tr>
+                            <template for:each={badges} for:item="field" for:index="index">
+                                <tr key={field.Id} class="slds-hint-parent">
+                                    <th data-label="Name" scope="row">
+                                        <div class="" title={field.Name}>{field.Name__c}</div>
+                                    </th>
+                                    <td data-label="Order">
+                                        <div class="" title={field.order__c}>{field.order__c}</div>
+                                    </td>
+                                    <td data-label="Label">
+                                        <div class="" title={field.label__c}>{field.label__c}</div>
+                                    </td>
+                                    <td data-label="Displayed Field">
+                                        <div class="" title={field.apiName__c}>{field.apiName__c}</div>
+                                    </td>
+                                    <td data-label="Actions" class="slds-p-around_none"
+                                        style="width: 50px; min-width: 50px; max-width:50px;">
+                                        <div class="slds-text-align_absolute-center slds-text-align_center">
+                                            <lightning-button-menu alternative-text="Show menu" variant="border"
+                                                icon-size="x-small" data-row={index} data-type="badge"
+                                                onselect={handleRowAction}>
+                                                <lightning-menu-item value="edit" label="Edit"
+                                                    icon-name="utility:edit"></lightning-menu-item>
+                                                <lightning-menu-item value="delete" label="Delete"
+                                                    icon-name="utility:delete"></lightning-menu-item>
+                                            </lightning-button-menu>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            </template>
+                        </template>
+                        <template if:true={showActions}>
+                            <tr class="slds-hint-parent">
+                                <th colspan="5" scope="row">
+                                    <div class="slds-p-top_small" title="Actions">
+                                        <p class="slds-text-body_regular slds-text-color_weak"><strong>Actions:</strong>
+                                        </p>
+                                    </div>
+                                </th>
+                            </tr>
+                            <template for:each={actions} for:item="act" for:index="index">
+                                <tr key={act.Id} class="slds-hint-parent">
+                                    <th data-label="Name" scope="row">
+                                        <div class="" title={act.Name}>{act.Name__c}</div>
+                                    </th>
+                                    <td data-label="Order">
+                                        <div class="" title={act.order__c}>{act.order__c}</div>
+                                    </td>
+                                    <td data-label="Label">
+                                        <div class="" title={act.label__c}>{act.label__c}</div>
+                                    </td>
+                                    <td data-label="Action">
+                                        <div class="" title={act.flowName__c}>{act.flowName__c}</div>
+                                    </td>
+                                    <td data-label="Actions" class="slds-p-around_none"
+                                        style="width: 50px; min-width: 50px; max-width:50px;">
+                                        <div class="slds-text-align_absolute-center slds-text-align_center">
+                                            <lightning-button-menu alternative-text="Show menu" variant="border"
+                                                icon-size="x-small" data-row={index} data-type="action"
+                                                onselect={handleRowAction}>
+                                                <lightning-menu-item value="edit" label="Edit"
+                                                    icon-name="utility:edit"></lightning-menu-item>
+                                                <lightning-menu-item value="delete" label="Delete"
+                                                    icon-name="utility:delete"></lightning-menu-item>
+                                            </lightning-button-menu>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            </template>
+                        </template>
+                    </tbody>
+                </table>
+
+
+            </template>
+        </div>
+
+        <lightning-button label="Create New Field/Badge/Action" icon-name="action:new" variant="brand"
+            onclick={handleNew} class="slds-m-top_medium"></lightning-button>
+
+    </div>
+</template>

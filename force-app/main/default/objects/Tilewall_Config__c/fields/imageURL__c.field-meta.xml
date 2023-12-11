@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>imageURL__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>URL for a default image to be used as each tile&apos;s background. If the Tile Wall is being displayed in Experience Cloud, make sure the site hosting the image is included as a CSP trusted site.</inlineHelpText>
+    <label>Tile Background Image URL</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

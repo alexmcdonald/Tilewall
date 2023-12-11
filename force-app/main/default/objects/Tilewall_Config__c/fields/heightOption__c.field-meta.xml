@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>heightOption__c</fullName>
+    <defaultValue>&apos;max-row&apos;</defaultValue>
+    <externalId>false</externalId>
+    <inlineHelpText>Options: max-row,fixed,individual.  Max-Row: Tile auto-size height to fit contents, each tile in a row will be the same height; Fixed: Fixed at specified height; Individual: Each tile sized to fit content.</inlineHelpText>
+    <label>Tile Height</label>
+    <length>30</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>titleSize__c</fullName>
+    <defaultValue>&apos;body_regular&apos;</defaultValue>
+    <externalId>false</externalId>
+    <inlineHelpText>Text size style for the title (google &apos;slds text&apos; for examples of each style). Options: body_regular,body_small,heading_large,heading_medium,heading_small</inlineHelpText>
+    <label>Title Size</label>
+    <length>55</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

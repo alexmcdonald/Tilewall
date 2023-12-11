@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>title__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Title for the header of the tile wall component (as opposed to an individual tile)</inlineHelpText>
+    <label>Title</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>displayCount__c</fullName>
+    <defaultValue>true</defaultValue>
+    <externalId>false</externalId>
+    <inlineHelpText>Display the record count in brackets in the component header.</inlineHelpText>
+    <label>Display Record Count</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

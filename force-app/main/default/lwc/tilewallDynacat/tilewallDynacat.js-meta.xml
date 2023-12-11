@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <isExposed>true</isExposed>
+
+    <masterLabel>Tile Wall (with Dynacat)</masterLabel>
+    <targets>
+        <target>lightning__AppPage</target>
+        <target>lightning__RecordPage</target>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__AppPage, lightning__RecordPage">
+            <property name="tileWallConfigName" datasource="apex://Tilewall_Picklist_Configs" type="String" label="Tile Wall Config Name" />
+            <!--<property name="tileWallConfigName" type="String" label="Tile Wall Config Name" />-->
+            <property name="deployment" datasource="apex://Dynacat_Picklist_Deployments" type="String" label="Dynacat Deployment Name" description="Deployment field for the custom metadata config." />
+            <!--<property name="deployment" type="String" label="Dynacat Deployment Name"
+                description="Deployment field for the custom metadata config." />-->
+            <property name="soqlWhere" type="String" label="SOQL Where Clause"
+                description="For pre-filtering of records, you can enter a SOQL-formatted WHERE clause. This can be used to only display certain RecordTypes, or records with specific criteria. If this component is being used on a record page, you can use {{recordid}} within the query to pass the record Id in - eg. AccountId='{{recordid}}' " />
+        </targetConfig>
+        <targetConfig targets="lightningCommunity__Default">
+            <property name="tileWallConfigName" datasource="apex://Tilewall_Picklist_Configs" type="String" label="Tile Wall Config Name" />
+            <!--<property name="tileWallConfigName" type="String" label="Tile Wall Config Name" />-->
+            <property name="deployment" datasource="apex://Dynacat_Picklist_Deployments" type="String" label="Dynacat Deployment Name" description="Deployment field for the custom metadata config." />
+            <!--<property name="deployment" type="String" label="Dynacat Deployment Name"
+                description="Deployment field for the custom metadata config." />-->
+            <property name="soqlWhere" type="String" label="SOQL Where Clause"
+                description="For pre-filtering of records, you can enter a SOQL-formatted WHERE clause. This can be used to only display certain RecordTypes, or records with specific criteria. If this component is being used on a record page, you can use {{recordid}} within the query to pass the record Id in - eg. AccountId='{{recordid}}' " />
+            <property name="recordId" type="String" label="Record Id"
+                description="Remove or hard-code this value if not using on a record page"
+                default="{!recordId}" />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

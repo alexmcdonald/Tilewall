@@ -1,0 +1,20 @@
+.tile-style {
+    background-position: center;
+    background-repeat: no-repeat;
+/*    overflow: hidden;
+    text-overflow: ellipsis;*/
+    background: var(--background, inherit);
+    height: var(--tileHeight, initial);
+}
+
+.tilewall-table {
+    background-color: inherit;
+}
+
+.vertical-align-top {
+    vertical-align: top;
+}
+
+.hideMe {
+    display: none !important;
+}

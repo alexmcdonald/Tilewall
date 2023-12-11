@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>actionVar1__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>(Optional) Variable value to pass into a Flow opened from an action. You must create a text variable named actionVar1 (case-sensitive) in the Flow, that is available for input from outside the flow.</inlineHelpText>
+    <label>Action Variable 1</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

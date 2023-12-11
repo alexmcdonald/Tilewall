@@ -1,0 +1,183 @@
+<template>
+
+    <div class="slds-m-bottom_medium">
+
+        <div class="slds-text-heading_small slds-text-color_weak slds-m-bottom_small">{label}</div>
+
+        <div class="slds-m-bottom_medium">
+            <template if:true={displayTable}>
+
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_fixed-layout"
+                    aria-label="Filters">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th class="" scope="col">
+                                <div class="" style="width:1rem;" title="Name">Name</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="" style="width:1rem;" title="Order">Order</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="" style="width:1rem;" title="Display Type">Display Type</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="" style="width:1rem;" title="Object">Object</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="" style="width:1rem;" title="Object">Field / Attribute Name</div>
+                            </th>
+                            <th class="" scope="col" style="width: 50px; min-width: 50px; max-width:50px;">
+                                <div class="" title="Actions"></div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template if:true={showSections}>
+                            <tr class="slds-hint-parent">
+                                <th colspan="6" scope="row">
+                                    <div class="slds-p-top_small" title="Sections">
+                                        <p class="slds-text-body_regular slds-text-color_weak">
+                                            <strong>Sections:</strong>
+                                        </p>
+                                    </div>
+                                </th>
+                            </tr>
+                            <template for:each={sections} for:item="section" for:index="index">
+                                <tr key={section.Id} class="slds-hint-parent">
+                                    <th data-label="Name" scope="row">
+                                        <div class="" title={section.Name}>{section.Name__c}</div>
+                                    </th>
+                                    <td data-label="Order">
+                                        <div class="" title={section.Order__c}>{section.Order__c}</div>
+                                    </td>
+                                    <td data-label="Display Type">
+                                        <div class="" title=""></div>
+                                    </td>
+                                    <td data-label="Object">
+                                        <div class="" title="">
+                                        </div>
+                                    </td>
+                                    <td data-label="Field / Attribute Name">
+                                        <div class="" title="">
+                                        </div>
+                                    </td>
+                                    <td data-label="Actions" class="slds-p-around_none"
+                                        style="width: 50px; min-width: 50px; max-width:50px;">
+                                        <div class="slds-text-align_absolute-center slds-text-align_center">
+                                            <lightning-button-menu alternative-text="Show menu" variant="border"
+                                                icon-size="x-small" onselect={handleRowAction} data-type="section"
+                                                data-row={index}>
+                                                <lightning-menu-item value="edit" label="Edit"
+                                                    icon-name="utility:edit"></lightning-menu-item>
+                                                <lightning-menu-item value="delete" label="Delete"
+                                                    icon-name="utility:delete"></lightning-menu-item>
+                                            </lightning-button-menu>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            </template>
+                        </template>
+                        <template if:true={showFields}>
+                            <tr class="slds-hint-parent">
+                                <th colspan="6" scope="row">
+                                    <div class="slds-p-top_small" title="Fields">
+                                        <p class="slds-text-body_regular slds-text-color_weak"><strong>Fields:</strong>
+                                        </p>
+                                    </div>
+                                </th>
+                            </tr>
+                            <template for:each={fields} for:item="field" for:index="index">
+                                <tr key={field.Id} class="slds-hint-parent">
+                                    <th data-label="Name" scope="row">
+                                        <div class="" title={field.Name}>{field.Name__c}</div>
+                                    </th>
+                                    <td data-label="Order">
+                                        <div class="" title={field.Order__c}>{field.Order__c}</div>
+                                    </td>
+                                    <td data-label="Display Type">
+                                        <div class="" title={field.Display_Type__c}>{field.Display_Type__c}</div>
+                                    </td>
+                                    <td data-label="Object">
+                                        <div class="" title={field.Object_API_Name__c}>{field.Object_API_Name__c}
+                                        </div>
+                                    </td>
+                                    <td data-label="Field / Attribute Name">
+                                        <div class="" title={field.Filter__c}>{field.Filter__c}
+                                        </div>
+                                    </td>
+                                    <td data-label="Actions" class="slds-p-around_none"
+                                        style="width: 50px; min-width: 50px; max-width:50px;">
+                                        <div class="slds-text-align_absolute-center slds-text-align_center">
+                                            <lightning-button-menu alternative-text="Show menu" variant="border"
+                                                icon-size="x-small" onselect={handleRowAction} data-type="field"
+                                                data-row={index}>
+                                                <lightning-menu-item value="edit" label="Edit"
+                                                    icon-name="utility:edit"></lightning-menu-item>
+                                                <lightning-menu-item value="delete" label="Delete"
+                                                    icon-name="utility:delete"></lightning-menu-item>
+                                            </lightning-button-menu>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </template>
+                        </template>
+                        <template if:true={showAttributes}>
+                            <tr class="slds-hint-parent">
+                                <th colspan="6" scope="row">
+                                    <div class="slds-p-top_small" title="Attributes">
+                                        <p class="slds-text-body_regular slds-text-color_weak">
+                                            <strong>Attributes:</strong>
+                                        </p>
+                                    </div>
+                                </th>
+                            </tr>
+                            <template for:each={attributes} for:item="attribute" for:index="index">
+                                <tr key={attribute.Id} class="slds-hint-parent">
+                                    <th data-label="Name" scope="row">
+                                        <div class="" title={attribute.Name}>{attribute.Name__c}</div>
+                                    </th>
+                                    <td data-label="Order">
+                                        <div class="" title={attribute.Order__c}>{attribute.Order__c}</div>
+                                    </td>
+                                    <td data-label="Display Type">
+                                        <div class="" title={attribute.Display_Type__c}>{attribute.Display_Type__c}
+                                        </div>
+                                    </td>
+                                    <td data-label="Object">
+                                        <div class="" title={attribute.Object_API_Name__c}>
+                                            {attribute.Object_API_Name__c}
+                                        </div>
+                                    </td>
+                                    <td data-label="Field / Attribute Name">
+                                        <div class="" title={attribute.Filter__c}>{attribute.Filter__c}
+                                        </div>
+                                    </td>
+                                    <td data-label="Actions" class="slds-p-around_none"
+                                        style="width: 50px; min-width: 50px; max-width:50px;">
+                                        <div class="slds-text-align_absolute-center slds-text-align_center">
+                                            <lightning-button-menu alternative-text="Show menu" variant="border"
+                                                icon-size="x-small" onselect={handleRowAction} data-type="attribute"
+                                                data-row={index}>
+                                                <lightning-menu-item value="edit" label="Edit"
+                                                    icon-name="utility:edit"></lightning-menu-item>
+                                                <lightning-menu-item value="delete" label="Delete"
+                                                    icon-name="utility:delete"></lightning-menu-item>
+                                            </lightning-button-menu>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </template>
+                        </template>
+                    </tbody>
+                </table>
+
+
+            </template>
+        </div>
+
+        <lightning-button label="Create New Section or Field/Attribute Filter" icon-name="action:new" variant="brand"
+            onclick={handleNew} class="slds-m-top_medium"></lightning-button>
+
+    </div>
+</template>

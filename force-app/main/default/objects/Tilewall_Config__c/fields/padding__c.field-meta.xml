@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>padding__c</fullName>
+    <defaultValue>false</defaultValue>
+    <externalId>false</externalId>
+    <inlineHelpText>Applies padding to the left and right of each field and label.  In horizontal mode, a small amount of padding will be applied to the right of the label if unchecked, to enable separation.</inlineHelpText>
+    <label>Field Padding</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

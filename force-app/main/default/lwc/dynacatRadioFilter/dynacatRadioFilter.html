@@ -1,0 +1,21 @@
+<template>
+
+    <li data-id={xid} role="treeitem" tabindex="0">
+        <div class="slds-tree__item">
+            <div style="width:100%;" class="slds-grid">
+                <div class="slds-col slds-grow">
+                    <lightning-radio-group data-id={xid} label={label} options={options} value={value}
+                        onchange={handleSelect} type="radio">
+                    </lightning-radio-group>
+                </div>
+                <template if:true={showclear}>
+                    <div class="slds-no-flex">
+                        <lightning-button-icon icon-name="utility:delete" variant="bare" alternative-text="Clear Radio"
+                            title="Clear" onclick={handleClear} class="slds-m-left_medium"></lightning-button-icon>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </li>
+
+</template>

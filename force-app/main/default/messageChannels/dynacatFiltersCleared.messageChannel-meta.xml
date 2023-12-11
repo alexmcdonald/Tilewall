@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningMessageChannel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Sends a clear all message to child filters.</description>
+    <isExposed>true</isExposed>
+    <lightningMessageFields>
+        <description>Clear All Filters (sends true)</description>
+        <fieldName>clearAll</fieldName>
+    </lightningMessageFields>
+    <masterLabel>Dynacat Filters Cleared</masterLabel>
+</LightningMessageChannel>

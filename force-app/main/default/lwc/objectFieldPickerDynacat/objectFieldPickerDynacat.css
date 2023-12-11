@@ -1,0 +1,18 @@
+.spinnerHolder {
+    min-height: 40px;
+}
+
+.field-picker-no-border {
+    --sds-c-card-body-spacing-block-start: 0;
+    --sds-c-card-body-spacing-block-end: 0;
+}
+
+.field-picker-no-border .field-picker-inner {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.field-picker-helptext {
+    position: relative;
+    top: -3px;
+}

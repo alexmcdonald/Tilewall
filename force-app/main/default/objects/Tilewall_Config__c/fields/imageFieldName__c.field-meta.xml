@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>imageFieldName__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>API Name of a record field that provides the URL for that tile&apos;s background, eg. through a formula field. Make sure the site hosting the image is added to CSP Trusted Sites if this component is used in Experience Cloud.</inlineHelpText>
+    <label>Tile Background Image Fieldname</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>
